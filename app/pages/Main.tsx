@@ -12,6 +12,14 @@ export default function Main() {
                 </p>
             </div>
             <RedBox/>
+            <div className="mt-16">
+                <div className="flex justify-center gap-10">
+                    <div className="">asd</div>
+                    <div className="">asd</div>
+                    <div className="">asd</div>
+                    <div className="">asd</div>
+                </div>
+            </div>
         </div>
     );
 }
