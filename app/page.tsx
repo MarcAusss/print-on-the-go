@@ -1,11 +1,12 @@
 import Image from "next/image";
-import RedBox from "./pages/box";
+import NavBar from "./components/NavBar";
+import Main from "./pages/Main";
 
 export default function Home() {
   return (
     <div className="">
-      
-      <RedBox/>
+      <Main/>
+      <NavBar/>
     </div>
   );
 }

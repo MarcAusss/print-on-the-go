@@ -39,8 +39,8 @@ export default function UploadBox({ onUpload }: UploadBoxProps) {
 
   return (
     <div
-      className={`cursor-pointer bg-red-600 text-white rounded-3xl p-12 flex flex-col items-center gap-4 shadow-lg border-4 border-dashed ${
-        dragActive ? "border-white" : "border-transparent"
+      className={`cursor-pointer bg-[#155efc] h-[25vh] w-[70vh] text-white rounded-3xl p-12 flex flex-col justify-center items-center gap-4 shadow-lg border-4 border-dashed ${
+        dragActive ? "bg-[#155efc91]!"  : "border-transparent"
       }`}
       onDragEnter={handleDrag}
       onDragOver={handleDrag}
@@ -55,7 +55,7 @@ export default function UploadBox({ onUpload }: UploadBoxProps) {
         hidden
         onChange={handleChange}
       />
-      <div className="text-5xl">+</div>
+      <div className="text-5xl rounded-full py-2 px-5 bg-white text-black">+</div>
       <p className="text-lg font-semibold">
         Upload or Drag & Drop your file
       </p>
