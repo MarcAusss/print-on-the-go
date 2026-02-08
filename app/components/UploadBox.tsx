@@ -13,12 +13,7 @@ export default function UploadBox({ onUpload }: UploadBoxProps) {
   const handleDrag = (e: DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     e.stopPropagation();
-
-    if (e.type === "dragenter" || e.type === "dragover") {
-      setDragActive(true);
-    } else if (e.type === "dragleave") {
-      setDragActive(false);
-    }
+    setDragActive(e.type !== "dragleave");
   };
 
   const handleDrop = (e: DragEvent<HTMLDivElement>) => {
@@ -26,22 +21,24 @@ export default function UploadBox({ onUpload }: UploadBoxProps) {
     e.stopPropagation();
     setDragActive(false);
 
-    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+    if (e.dataTransfer.files?.[0]) {
       onUpload(e.dataTransfer.files[0]);
-    }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      onUpload(e.target.files[0]);
     }
   };
 
   return (
     <div
-      className={`cursor-pointer bg-[#155efc] h-[35vh] w-[75vh] text-white rounded-3xl p-12 flex flex-col justify-center items-center gap-4 shadow-lg border-4 border-dashed ${
-        dragActive ? "bg-[#155efc91]!"  : "border-transparent"
-      }`}
+      className={`
+        cursor-pointer text-white rounded-3xl shadow-lg
+        border-4 border-dashed transition
+
+        bg-[#155efc]
+        md:h-[35vh] md:w-[75vh]
+        w-full max-w-md min-h-65
+
+        flex flex-col justify-center items-center gap-4 p-12
+        ${dragActive ? "border-white bg-[#155efc91]" : "border-transparent"}
+      `}
       onDragEnter={handleDrag}
       onDragOver={handleDrag}
       onDragLeave={handleDrag}
@@ -53,10 +50,11 @@ export default function UploadBox({ onUpload }: UploadBoxProps) {
         type="file"
         accept=".pdf"
         hidden
-        onChange={handleChange}
+        onChange={(e) => e.target.files && onUpload(e.target.files[0])}
       />
+
       <div className="text-5xl rounded-full py-2 px-5 bg-white text-black">+</div>
-      <p className="text-lg font-semibold">
+      <p className="text-lg font-semibold text-center">
         Upload or Drag & Drop your file
       </p>
       <p className="text-sm opacity-80">Size up to 100MB</p>

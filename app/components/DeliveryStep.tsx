@@ -8,13 +8,20 @@ interface DeliveryStepProps {
 
 export default function DeliveryStep({ value, setValue, submit }: DeliveryStepProps) {
   return (
-    <div className="bg-white rounded-3xl h-[35vh] w-[75vh] p-8 shadow flex flex-col gap-3">
+    <div
+      className="
+        bg-white rounded-3xl p-8 shadow flex flex-col gap-3
+
+        md:h-[35vh] md:w-[75vh]
+        w-full max-w-md min-h-65
+      "
+    >
       {(["Pickup", "Deliver"] as const).map((opt) => (
         <button
           key={opt}
           onClick={() => setValue(opt)}
-          className={`w-full p-4 rounded-xl border ${
-            value === opt ? "border-red-600 bg-red-50" : ""
+          className={`w-full p-4 rounded-xl border transition ${
+            value === opt ? "border-red-600 bg-red-50" : "border-gray-200"
           }`}
         >
           {opt}

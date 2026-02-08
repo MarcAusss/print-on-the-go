@@ -18,12 +18,16 @@ export default function AdminPage() {
 
   return (
     <>
-    <AdminNav/>
-      <div className="p-10 mt-16 min-h-screen">
-        {orders.length === 0 && <p className="text-gray-500">No orders yet</p>}
+      <AdminNav />
 
+      <div className="p-4 md:p-10 mt-16 min-h-screen">
+        {orders.length === 0 && (
+          <p className="text-gray-500">No orders yet</p>
+        )}
+
+        {/* ================= DESKTOP TABLE ================= */}
         {orders.length > 0 && (
-          <div className="overflow-x-auto bg-white rounded-2xl shadow">
+          <div className="hidden md:block overflow-x-auto bg-white rounded-2xl shadow">
             <table className="w-full border-collapse">
               <thead className="bg-gray-100">
                 <tr className="text-left text-sm text-gray-600">
@@ -77,7 +81,9 @@ export default function AdminPage() {
                     <td className="px-6 py-4 text-right">
                       {o.status !== "Completed" && (
                         <button
-                          onClick={() => update({ ...o, status: "Completed" })}
+                          onClick={() =>
+                            update({ ...o, status: "Completed" })
+                          }
                           className="px-4 py-2 rounded-lg bg-black text-white text-sm hover:bg-gray-800"
                         >
                           Mark Completed
@@ -90,6 +96,63 @@ export default function AdminPage() {
             </table>
           </div>
         )}
+
+        {/* ================= MOBILE CARDS ================= */}
+        <div className="md:hidden space-y-4">
+          {orders.map((o) => (
+            <div
+              key={o.id}
+              className="bg-white rounded-xl shadow p-4 space-y-3"
+            >
+              <div>
+                <p className="font-semibold">{o.name}</p>
+                <p className="text-sm text-gray-500">{o.contact}</p>
+                <p className="text-xs text-gray-400">{o.address}</p>
+              </div>
+
+              <div className="text-sm">
+                <p className="font-medium">{o.fileName}</p>
+                <a
+                  href={o.fileBase64}
+                  download={o.fileName}
+                  className="text-red-600 hover:underline"
+                >
+                  Download PDF
+                </a>
+              </div>
+
+              <div className="flex justify-between text-sm">
+                <span>
+                  <b>Paper:</b> {o.paperSize}
+                </span>
+                <span>
+                  <b>Print:</b> {o.printType}
+                </span>
+              </div>
+
+              <div className="flex items-center justify-between">
+                <span
+                  className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                    o.status === "Completed"
+                      ? "bg-green-100 text-green-700"
+                      : "bg-yellow-100 text-yellow-700"
+                  }`}
+                >
+                  {o.status}
+                </span>
+
+                {o.status !== "Completed" && (
+                  <button
+                    onClick={() => update({ ...o, status: "Completed" })}
+                    className="px-4 py-2 rounded-lg bg-black text-white text-xs"
+                  >
+                    Complete
+                  </button>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );

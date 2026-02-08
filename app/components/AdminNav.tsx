@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export default function AdminNav() {
   return (
-    <div className="fixed w-full top-0 left-0">
-      <div className="justify-between flex items-center max-w-7xl mx-auto py-2">
+    <div className="fixed w-full top-0 left-0 bg-white">
+      <div className="justify-between flex items-center max-w-7xl mx-5 py-2 lg:mx-auto">
         <Image
           src="/images/logo.jpg"
           width={50}
