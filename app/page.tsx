@@ -1,9 +1,11 @@
-import Auth from "./components/auth";
+import Image from "next/image";
+import RedBox from "./pages/box";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <Auth />        
-    </main>
+    <div className="">
+      
+      <RedBox/>
+    </div>
   );
 }
