@@ -14,10 +14,9 @@ export default function Main() {
             <RedBox/>
             <div className="mt-16">
                 <div className="flex justify-center gap-10">
-                    <div className="">asd</div>
-                    <div className="">asd</div>
-                    <div className="">asd</div>
-                    <div className="">asd</div>
+                    <div className="">Privacy-focused</div>
+                    <div className="">Easy to Use</div>
+                    <div className="">Hassle Free</div>
                 </div>
             </div>
         </div>
