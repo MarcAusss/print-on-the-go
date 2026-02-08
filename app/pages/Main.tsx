@@ -13,18 +13,31 @@ export default function Main() {
             </div>
             <RedBox/>
             <div className="mt-16">
-                <div className="flex justify-center gap-10">
-                    <div className="">
-                        <i className=""></i>
-                        <h1 className="">Privacy-focused</h1>
-                    </div>
-                    <div className="">
-                        <i className=""></i>
-                        <h1 className="">Easy to Use</h1>
-                    </div>
-                    <div className="">
-                        <i className=""></i>
-                        <h1 className="">Hassle Free</h1>
+                <div className="flex justify-center gap-10 text-center">
+                    <div className="flex justify-center gap-10">
+                        {/* Privacy-focused */}
+                        <div className="flex items-center gap-2">
+                            <div className="w-12 h-12 bg-gray-50 border-dashed border-gray-400 border rounded-md flex items-center justify-center">
+                                <i className="fa-solid fa-lock text-2xl"></i>
+                            </div>
+                            <h1 className="text-lg font-semibold">Privacy-focused</h1>
+                        </div>
+
+                        {/* Easy to Use */}
+                        <div className="flex items-center gap-2">
+                            <div className="w-12 h-12 bg-gray-50 border-dashed border-gray-400 border rounded-md flex items-center justify-center">
+                                <i className="fa-solid fa-hand-pointer text-2xl"></i>
+                            </div>
+                            <h1 className="text-lg font-semibold">Easy to Use</h1>
+                        </div>
+
+                        {/* Hassle Free */}
+                        <div className="flex items-center gap-2">
+                            <div className="w-12 h-12 bg-gray-50 border-dashed border-gray-400 border rounded-md flex items-center justify-center">
+                                <i className="fa-solid fa-smile text-2xl"></i>
+                            </div>
+                            <h1 className="text-lg font-semibold">Hassle Free</h1>
+                        </div>
                     </div>
                 </div>
             </div>

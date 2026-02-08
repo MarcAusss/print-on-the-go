@@ -8,7 +8,7 @@ interface DeliveryStepProps {
 
 export default function DeliveryStep({ value, setValue, submit }: DeliveryStepProps) {
   return (
-    <div className="bg-white rounded-3xl p-8 shadow flex flex-col gap-3">
+    <div className="bg-white rounded-3xl h-[35vh] w-[75vh] p-8 shadow flex flex-col gap-3">
       {(["Pickup", "Deliver"] as const).map((opt) => (
         <button
           key={opt}

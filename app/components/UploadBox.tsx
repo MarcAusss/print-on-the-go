@@ -39,7 +39,7 @@ export default function UploadBox({ onUpload }: UploadBoxProps) {
 
   return (
     <div
-      className={`cursor-pointer bg-[#155efc] h-[25vh] w-[70vh] text-white rounded-3xl p-12 flex flex-col justify-center items-center gap-4 shadow-lg border-4 border-dashed ${
+      className={`cursor-pointer bg-[#155efc] h-[35vh] w-[75vh] text-white rounded-3xl p-12 flex flex-col justify-center items-center gap-4 shadow-lg border-4 border-dashed ${
         dragActive ? "bg-[#155efc91]!"  : "border-transparent"
       }`}
       onDragEnter={handleDrag}
