@@ -25,13 +25,14 @@ export default function LoginPage() {
   if (isLoggedIn) return <AdminPage />;
 
   return (
-    <div className="h-screen flex overflow-hidden">
+    <div className="flex items-center justify-center h-screen">
+        <div className="h-[80vh] w-[60vw] flex">
       {/* Left: Login Form */}
-      <div className="flex flex-col justify-evenly w-full md:w-1/2 bg-white px-6 lg:px-10 relative">
+      <div className="flex flex-col justify-evenly w-full md:w-1/2 bg-white shadow-2xl rounded-l-lg px-6 lg:px-10 relative">
         <div className="space-y-6 w-full">
           {/* Header */}
           <div className="text-center relative">
-            <button className="absolute left-0 top-2 text-gray-600 hover:text-gray-800">
+            <Link href="/" className="absolute left-0 top-2 text-gray-600 hover:text-gray-800">
               {/* back arrow */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -43,8 +44,8 @@ export default function LoginPage() {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7" />
               </svg>
-            </button>
-            <h1 className="text-2xl font-bold">Student Login</h1>
+            </Link>
+            <h1 className="text-2xl font-bold">Admin Login</h1>
           </div>
 
           <hr className="pb-5" />
@@ -70,34 +71,11 @@ export default function LoginPage() {
 
             {error && <p className="text-red-500 text-sm">{error}</p>}
 
-            <div className="flex items-center justify-between mt-2">
-              <label className="inline-flex items-center gap-2">
-                <input type="checkbox" className="rounded border-gray-300 text-indigo-600" />
-                <span className="text-sm text-gray-600">Remember me</span>
-              </label>
-              <a href="#" className="text-sm underline text-gray-600 hover:text-gray-800">
-                Forgot your password?
-              </a>
-            </div>
-
-            <Link type="submit" href="../admin/adminpage" className="btn-primary w-full mt-4">
+            <Link type="submit" href="../admin/adminpage" className="btn-primary text-center w-full mt-4">
               Log in
             </Link>
-
-            <a href="#" className="underline text-sm text-gray-600 hover:text-gray-800 mt-2 block text-center">
-              Register as Student
-            </a>
           </form>
 
-          <hr className="w-[70%] mx-auto border-black mt-4" />
-
-          {/* Logos */}
-          <div className="flex justify-center space-x-4 mt-4">
-            <img src="/images/csit.png" alt="CSIT" className="h-20" />
-            <img src="/images/iiee.png" alt="IIEE" className="h-20" />
-            <img src="/images/pice.jpg" alt="PICE" className="h-20" />
-            <img src="/images/sliss.png" alt="SLISS" className="h-20" />
-          </div>
         </div>
       </div>
 
@@ -106,16 +84,17 @@ export default function LoginPage() {
         className="hidden md:flex md:w-1/2 bg-cover bg-center"
         style={{ backgroundImage: "url('/images/bfe6d0c4-dfbf-4c0c-8c54-1db80dd644ba.jpeg')" }}
       >
-        <div className="bg-[#5c0e0f]/90 w-full h-full flex items-center justify-center text-white p-10">
+        <div className="bg-blue-600 w-full h-full flex items-center rounded-r-lg justify-center text-white p-10">
           <div className="text-center">
-            <img src="/images/licoes.png" alt="Logo" className="w-72 mx-auto mb-4" />
+            <img src="/images/logo.jpg" alt="Logo" className="w-72 rounded-full mx-auto mb-4" />
             <h1 className="text-2xl font-bold mb-2">
-              LEAGUE OF INTEGRATED COMPUTER AND ENGINEERING STUDENTS
+              Print On The Go
             </h1>
-            <p className="text-sm mt-2 opacity-80">Welcome to your portal</p>
+            <p className="text-sm mt-2 opacity-80">Fast, easy, and stress-free — printing made simple from home.</p>
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }
